@@ -21,8 +21,25 @@ scissors.addEventListener("click",()=>{
     main() 
 })
 function main() {
+   
+    let computerops=ops[Math.ceil(Math.random()*3)]
+    player1.src=`./assets/${Useracsion}-hand.png`
+    computer.src=`./assets/${computerops}-hand.png`
+    if (Useracsion==computerops){
+    }
+    else  if(Useracsion=="scissors" && computerops=="rock" || Useracsion=="rock" && computerops=="paper" || Useracsion=="paper" && computerops=="scissors"){
+        compoints++
+        document.getElementById("computer").innerHTML=compoints
+    }
+    else{
+        points++
+        document.getElementById("user").innerHTML=points
+    }
+    check()
+}
+function check() {
     if (points==5 || compoints==5){
-        document.getElementById("result").style.display="block"
+        document.getElementById("result").style.display="flex"
         document.querySelector(".buttons").style.display="none"
         if (points>compoints){
             document.getElementById("player").innerHTML="You Won!!"
@@ -34,20 +51,5 @@ function main() {
         }
     }
     
-
-else{
-    let computerops=ops[Math.ceil(Math.random()*3)]
-    player1.src=`./assets/${Useracsion}-hand.png`
-    computer.src=`./assets/${computerops}-hand.png`
-    if (Useracsion==computerops){
-    }
-    else  if(Useracsion=="paper" && computerops=="rock" || Useracsion=="scissors" && computerops=="rock" || Useracsion=="rock" && computerops=="paper"){
-        compoints++
-        document.getElementById("computer").innerHTML=compoints
-    }
-    else{
-        points++
-        document.getElementById("user").innerHTML=points
-    }
-}}
+}
 document.getElementById("button").addEventListener("click",()=>{location.reload("./index.html")})
